@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Egypt</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --main-orange: #E67E22;
+            --dark-orange: #D35400;
+            --light-orange: #F39C12;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .navbar {
+            background-color: var(--main-orange);
+            padding: 10px 0;
+        }
+        
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: white;
+            margin-left: 15px;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: var(--dark-orange);
+            background-color: white;
+            border-radius: 5px;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                              url('data:image/jpeg;base64,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');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            background-color: rgba(230, 126, 34, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .place-card, .food-card {
+            margin-bottom: 30px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .place-card:hover, .food-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .place-card .card-body {
+            background-color: var(--light-orange);
+            color: white;
+        }
+        
+        .food-card .card-body {
+            background-color: var(--main-orange);
+            color: white;
+        }
+        
+        .reservation-form {
+            background-color: var(--light-orange);
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        footer {
+            background-color: var(--dark-orange);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .section-title {
+            color: var(--dark-orange);
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--dark-orange);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand me-auto" href="#">Explore Egypt</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#places">Places</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#food">Food</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reservation">Reservation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="display-4">Welcome to Egypt</h1>
+                <p class="lead">Discover the land of pharaohs, pyramids, and timeless wonders</p>
+                <p>Egypt, a country linking northeast Africa with the Middle East, dates to the time of the pharaohs. Millennia-old monuments sit along the fertile Nile River Valley, including Giza's colossal Pyramids and Great Sphinx as well as Luxor's hieroglyph-lined Karnak Temple and Valley of the Kings tombs.</p>
+                <a href="#reservation" class="btn btn-light btn-lg">Book Your Trip</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Places Section -->
+    <section id="places" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Must-Visit Places in Egypt</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card place-card">
+                        <img src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Pyramids of Giza">
+                        <div class="card-body">
+                            <h5 class="card-title">Pyramids of Giza</h5>
+                            <p class="card-text">The last surviving wonder of the ancient world, the Pyramids of Giza have been astonishing visitors since they were built over 4,500 years ago.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card place-card">
+                        <img src="egypt luxer temple.jpeg" class="card-img-top" alt="Luxor Temple">
+                        <div class="card-body">
+                            <h5 class="card-title">Luxor Temple</h5>
+                            <p class="card-text">This large Ancient Egyptian temple complex located on the east bank of the Nile River was founded in 1400 BCE.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card place-card">
+                        <img src="egypt luxer temple.jpeg" class="card-img-top" alt="Abu Simbel">
+                        <div class="card-body">
+                            <h5 class="card-title">Abu Simbel</h5>
+                            <p class="card-text">The twin temples carved out of mountainside during the reign of Pharaoh Ramesses II in the 13th century BCE.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card place-card">
+                        <img src="egypt alex.jpeg" class="card-img-top" alt="Alexandria">
+                        <div class="card-body">
+                            <h5 class="card-title">Alexandria</h5>
+                            <p class="card-text">Egypt's second-largest city with a Mediterranean atmosphere, home to the famous Bibliotheca Alexandrina.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card place-card">
+                        <img src="egypt red sea.jpeg" class="card-img-top" alt="Red Sea">
+                        <div class="card-body">
+                            <h5 class="card-title">Red Sea Riviera</h5>
+                            <p class="card-text">Famous for its spectacular coral reefs and beach resorts like Sharm El Sheikh and Hurghada.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card place-card">
+                        <img src="egypt siwa osasis.jpeg" class="card-img-top" alt="Siwa Oasis">
+                        <div class="card-body">
+                            <h5 class="card-title">Siwa Oasis</h5>
+                            <p class="card-text">A tranquil oasis near the Libyan border, known for its olive and date groves and unique Berber culture.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Section -->
+    <section id="food" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Delicious Egyptian Cuisine</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card food-card">
+                        <img src="egypt koshary.jpeg" class="card-img-top" alt="Koshary">
+                        <div class="card-body">
+                            <h5 class="card-title">Koshary</h5>
+                            <p class="card-text">Egypt's national dish - a mix of rice, lentils, chickpeas, pasta, and fried onions topped with tomato sauce and garlic vinegar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card food-card">
+                        <img src="egypt ful medames.jpeg" class="card-img-top" alt="Ful Medames">
+                        <div class="card-body">
+                            <h5 class="card-title">Ful Medames</h5>
+                            <p class="card-text">A staple breakfast dish made from fava beans cooked with oil and salt, typically served with bread.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card food-card">
+                        <img src="egypt molokhai.jpeg" class="card-img-top" alt="Molokhia">
+                        <div class="card-body">
+                            <h5 class="card-title">Molokhia</h5>
+                            <p class="card-text">A green soup made from jute leaves, usually served with rabbit or chicken and rice or bread.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card food-card">
+                        <img src="egypt hawashi.jpeg" class="card-img-top" alt="Hawawshi">
+                        <div class="card-body">
+                            <h5 class="card-title">Hawawshi</h5>
+                            <p class="card-text">A pita bread stuffed with minced meat and spices then baked or grilled to perfection.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card food-card">
+                        <img src="egypt fatta.jpeg" class="card-img-top" alt="Fatta">
+                        <div class="card-body">
+                            <h5 class="card-title">Fatta</h5>
+                            <p class="card-text">A festive dish made of rice, fried bread, and meat in a garlic-vinegar sauce, traditionally served on special occasions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card food-card">
+                        <img src="egypt um ali.jpeg" class="card-img-top" alt="Umm Ali">
+                        <div class="card-body">
+                            <h5 class="card-title">Umm Ali</h5>
+                            <p class="card-text">Egypt's famous bread pudding dessert made with pastry, milk, nuts, and raisins.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Book Your Egyptian Adventure</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="reservation-form">
+                        <form>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Gender</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+                                    <label class="form-check-label" for="male">
+                                        Male
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                                    <label class="form-check-label" for="female">
+                                        Female
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="birthDate" class="form-label">Birth Date</label>
+                                <input type="date" class="form-control" id="birthDate" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-dark">Submit Reservation</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Explore Egypt. All rights reserved.</p>
+            <p>Discover the wonders of ancient and modern Egypt.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
